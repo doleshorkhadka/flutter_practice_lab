@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.practical_lab">
+    package="com.example.flutter_practice_lab">
    <application
-        android:label="practical_lab"
+        android:label="flutter_practice_lab"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

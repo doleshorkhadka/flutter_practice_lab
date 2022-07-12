@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use
 
+import 'dart:math';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // import 'package:practical_lab/PracticeModels/visiting_card.dart';
 // import 'package:practical_lab/screens/home_screen.dart';
@@ -17,11 +20,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Center(child: Text('Dice Play')),
+          title: Center(child: Text('Magic Balls')),
           backgroundColor: Colors.red,
         ),
         backgroundColor: Colors.red,
-        body: Text('Hello World'),
+        body: Text('Ready for Next App'),
       ),
     );
   }

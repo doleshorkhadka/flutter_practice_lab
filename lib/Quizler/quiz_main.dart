@@ -1,39 +1,6 @@
-// ignore_for_file: prefer_const_constructors, deprecated_member_use
-
-import 'package:flutter/material.dart';
 import 'package:flutter_practice_lab/Quizler/quiz_brain.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
-
-// import 'Xylophone/xylophone.dart';
-// import 'PracticeModels/visiting_card.dart';
-// import 'screens/home_screen.dart';
-// import 'Magic3balls/magic8balls.dart';
-
-void main() {
-  return runApp(MyApp());
-}
 
 QuizBrain quizBrain = QuizBrain();
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.grey.shade900,
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: QuizPage(),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class QuizPage extends StatefulWidget {
   @override

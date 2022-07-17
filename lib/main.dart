@@ -6,6 +6,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'BMIcalculator/result_page.dart';
 import 'BMIcalculator/input_page.dart';
 // import 'package:flutter_practice_lab/Magic8Balls/magic8balls.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF0A0E21),
       ),
       debugShowCheckedModeBanner: false,
-      home: InputPage(),
+      home: SafeArea(child: CalculateResult()),
     );
   }
 }

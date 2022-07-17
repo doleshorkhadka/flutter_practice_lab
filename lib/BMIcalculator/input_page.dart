@@ -16,6 +16,9 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
+  int height = 180;
+  int weight = 74;
+  int age = 22;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +76,46 @@ class _InputPageState extends State<InputPage> {
           BoxContainer(
             color: kBoxPrimaryColor,
             childBox: Column(
-              children: [],
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'HEIGHT',
+                  style: kLabelTextStyle,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Text(
+                      height.toString(),
+                      style: kLargeTextStyle,
+                    ),
+                    Text(
+                      'cm',
+                      style: kLabelTextStyle,
+                    )
+                  ],
+                ),
+                SliderTheme(
+                  data: SliderTheme.of(context).copyWith(
+                      activeTrackColor: Colors.white,
+                      overlayColor: Color(0x29EB1555),
+                      trackHeight: 1,
+                      thumbColor: kButtomContainerColor),
+                  child: Slider(
+                    value: height.toDouble(),
+                    min: 120.0,
+                    max: 220.0,
+                    inactiveColor: kActiveColor,
+                    onChanged: (double value) {
+                      setState(() {
+                        height = value.round();
+                      });
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
           Expanded(
@@ -81,18 +123,111 @@ class _InputPageState extends State<InputPage> {
               children: [
                 BoxContainer(
                   color: kBoxPrimaryColor,
+                  childBox: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'WEIGHT',
+                        style: kLabelTextStyle,
+                      ),
+                      Text(
+                        weight.toString(),
+                        style: kLargeTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          MiniFloatingButton(
+                            icon: FontAwesomeIcons.minus,
+                            onClick: () {
+                              setState(() {
+                                weight--;
+                              });
+                            },
+                            onLongPress: () {
+                              setState(() {
+                                weight = weight - 2;
+                              });
+                            },
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          MiniFloatingButton(
+                            icon: FontAwesomeIcons.plus,
+                            onClick: () {
+                              setState(() {
+                                weight++;
+                              });
+                            },
+                            onLongPress: () {
+                              setState(() {
+                                weight = weight + 2;
+                              });
+                            },
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
                 BoxContainer(
                   color: kBoxPrimaryColor,
+                  childBox: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'AGE',
+                        style: kLabelTextStyle,
+                      ),
+                      Text(
+                        age.toString(),
+                        style: kLargeTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          MiniFloatingButton(
+                            icon: FontAwesomeIcons.minus,
+                            onClick: () {
+                              setState(() {
+                                age--;
+                              });
+                            },
+                            onLongPress: () {
+                              setState(() {
+                                age = age - 2;
+                              });
+                            },
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          MiniFloatingButton(
+                            icon: FontAwesomeIcons.plus,
+                            onClick: () {
+                              setState(() {
+                                age++;
+                              });
+                            },
+                            onLongPress: () {
+                              setState(() {
+                                age = age + 2;
+                              });
+                            },
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-          Container(
-            color: kButtomContainerColor,
-            height: kButtomContainerHeight,
-            width: double.infinity,
-          ),
+          SumbitButton(
+            text: 'CALCULATE',
+            onClick: () {},
+          )
         ],
       ),
     );

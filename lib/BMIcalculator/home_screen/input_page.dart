@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
+import '../results/result_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'constants.dart';
-import '/BMIcalculator/reused_card.dart';
+import '../components/constants.dart';
+import '../components/reused_card.dart';
+import '../components/bmicalculate.dart';
 
 enum Gender { male, female }
 
@@ -226,7 +228,17 @@ class _InputPageState extends State<InputPage> {
           ),
           SumbitButton(
             text: 'CALCULATE',
-            onClick: () {},
+            onClick: () {
+              BMIcalculate calc = BMIcalculate(height: height, weight: weight);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ResultPage(calc: calc);
+                  },
+                ),
+              );
+            },
           )
         ],
       ),

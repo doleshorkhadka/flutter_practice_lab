@@ -1,27 +1,19 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_lab/BMIcalculator/constants.dart';
-import 'package:flutter_practice_lab/BMIcalculator/reused_card.dart';
+import 'package:flutter_practice_lab/BMIcalculator/components/bmicalculate.dart';
+import '../components/constants.dart';
+import '../components/reused_card.dart';
+import '../home_screen/input_page.dart';
 
-class CalculateResult extends StatefulWidget {
-  CalculateResult({Key? key}) : super(key: key);
+class ResultPage extends StatelessWidget {
+  ResultPage({
+    Key? key,
+    required this.calc,
+  }) : super(key: key);
 
-  @override
-  State<CalculateResult> createState() => _CalculateResultState();
-}
-
-enum Result { overweight, normal, underweight }
-
-class _CalculateResultState extends State<CalculateResult> {
-  double? bmi;
-  Map<Result, String> prediction = {
-    Result.overweight:
-        'Try loosing some weight. It will be better if you do weight loosing exercises daily.',
-    Result.normal: 'Your BMI looks normal.You are fine .',
-    Result.underweight:
-        'Try gaining some weight. It will be better if you do aerobic exercises daily.',
-  };
+  BMIcalculate calc;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +53,15 @@ class _CalculateResultState extends State<CalculateResult> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      'Result',
+                      calc.getInterpretation()!.elementAt(1) == Result.normal
+                          ? 'Normal'
+                          : calc.getInterpretation()!.elementAt(1) ==
+                                  Result.obese
+                              ? 'Obese'
+                              : calc.getInterpretation()!.elementAt(1) ==
+                                      Result.overweight
+                                  ? 'Overweight'
+                                  : 'Underweight',
                       style: TextStyle(
                         color: Colors.green,
                         fontWeight: FontWeight.bold,
@@ -69,12 +69,15 @@ class _CalculateResultState extends State<CalculateResult> {
                       ),
                     ),
                     Text(
-                      'BMI',
+                      calc.getInterpretation()!.elementAt(0).toString(),
                       style: kLargeTextStyle,
                     ),
                     Text(
-                      prediction[Result.overweight].toString(),
+                      calc.getInterpretation()!.elementAt(2).toString(),
                       textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 22,
+                      ),
                     ),
                   ],
                 ),
@@ -83,7 +86,9 @@ class _CalculateResultState extends State<CalculateResult> {
           ),
           SumbitButton(
             text: 'RE-CALCULATE',
-            onClick: () {},
+            onClick: () {
+              Navigator.pop(context);
+            },
           )
         ],
       ),

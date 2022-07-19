@@ -11,11 +11,11 @@ import 'home_screen/input_page.dart';
 // import 'package:flutter_practice_lab/Magic8Balls/magic8balls.dart';
 
 void main() {
-  return runApp(MyApp());
+  return runApp(BMIcalculator());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class BMIcalculator extends StatelessWidget {
+  const BMIcalculator({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

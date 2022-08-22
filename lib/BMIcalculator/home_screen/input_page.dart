@@ -9,14 +9,14 @@ import '../components/bmicalculate.dart';
 
 enum Gender { male, female }
 
-class InputPage extends StatefulWidget {
-  InputPage({Key? key}) : super(key: key);
+class BmiCalculator extends StatefulWidget {
+  BmiCalculator({Key? key}) : super(key: key);
 
   @override
-  State<InputPage> createState() => _InputPageState();
+  State<BmiCalculator> createState() => _BmiCalculatorState();
 }
 
-class _InputPageState extends State<InputPage> {
+class _BmiCalculatorState extends State<BmiCalculator> {
   Gender? selectedGender;
   int height = 180;
   int weight = 74;

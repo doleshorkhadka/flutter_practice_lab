@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           child: DecoratedBox(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/destiny_changer/background.png"),
+                  image: AssetImage("assets/destiny-changer/background.png"),
                   opacity: 0.6,
                   fit: BoxFit.cover),
             ),
@@ -55,6 +55,7 @@ class _DestinyChooserState extends State<DestinyChooser> {
               child: Text(
                 destinyBrain.getStoryText(),
                 textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 24),
               ),
             ),
           ),

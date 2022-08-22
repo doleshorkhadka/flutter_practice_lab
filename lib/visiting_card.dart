@@ -15,7 +15,7 @@ class VisitingCard extends StatelessWidget {
               const CircleAvatar(
                 radius: 50,
                 backgroundColor: Colors.black,
-                backgroundImage: AssetImage('visitingcard/pp.png'),
+                backgroundImage: AssetImage('assets/visitingcard/pp.png'),
               ),
               const Text(
                 'Doleshor Khadka',
